@@ -1,7 +1,7 @@
 ---
-- name: restart node_exporter
+- name: restart slurm_exporter
   become: true
   systemd:
     daemon_reload: true
-    name: node_exporter
+    name: slurm_exporter
     state: restarted

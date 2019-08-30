@@ -3,12 +3,12 @@
   hosts: all
   any_errors_fatal: true
   roles:
-    - ansible-node-exporter
+    - ansible-slurm-exporter
   vars:
-    node_exporter_system_group: "root"
-    node_exporter_system_user: "root"
-    node_exporter_textfile_dir: ""
-    node_exporter_enabled_collectors:
+    slurm_exporter_system_group: "root"
+    slurm_exporter_system_user: "root"
+    slurm_exporter_textfile_dir: ""
+    slurm_exporter_enabled_collectors:
       - entropy
-    node_exporter_disabled_collectors:
+    slurm_exporter_disabled_collectors:
       - diskstats

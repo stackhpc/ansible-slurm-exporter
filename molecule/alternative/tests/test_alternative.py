@@ -7,7 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_directories(host):
     dirs = [
-        "/var/lib/node_exporter"
+        "/var/lib/slurm_exporter"
     ]
     for dir in dirs:
         d = host.file(dir)
@@ -15,12 +15,12 @@ def test_directories(host):
 
 
 def test_user(host):
-    assert not host.group("node-exp").exists
-    assert not host.user("node-exp").exists
+    assert not host.group("slurm-exp").exists
+    assert not host.user("slurm-exp").exists
 
 
 def test_service(host):
-    s = host.service("node_exporter")
+    s = host.service("slurm_exporter")
 #    assert s.is_enabled
     assert s.is_running
 

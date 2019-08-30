@@ -7,7 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_directories(host):
     dirs = [
-        "/var/lib/node_exporter"
+        "/var/lib/slurm_exporter"
     ]
     for dir in dirs:
         d = host.file(dir)
@@ -17,8 +17,8 @@ def test_directories(host):
 
 def test_files(host):
     files = [
-        "/etc/systemd/system/node_exporter.service",
-        "/usr/local/bin/node_exporter"
+        "/etc/systemd/system/slurm_exporter.service",
+        "/usr/local/bin/slurm_exporter"
     ]
     for file in files:
         f = host.file(file)
@@ -27,14 +27,14 @@ def test_files(host):
 
 
 def test_user(host):
-    assert host.group("node-exp").exists
-    assert "node-exp" in host.user("node-exp").groups
-    assert host.user("node-exp").shell == "/usr/sbin/nologin"
-    assert host.user("node-exp").home == "/"
+    assert host.group("slurm-exp").exists
+    assert "slurm-exp" in host.user("slurm-exp").groups
+    assert host.user("slurm-exp").shell == "/usr/sbin/nologin"
+    assert host.user("slurm-exp").home == "/"
 
 
 def test_service(host):
-    s = host.service("node_exporter")
+    s = host.service("slurm_exporter")
 #    assert s.is_enabled
     assert s.is_running
 

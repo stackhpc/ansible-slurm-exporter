@@ -2,15 +2,15 @@
 
 # Ansible Role: node exporter
 
-[![Build Status](https://travis-ci.org/cloudalchemy/ansible-node-exporter.svg?branch=master)](https://travis-ci.org/cloudalchemy/ansible-node-exporter)
+[![Build Status](https://travis-ci.org/stackhpc/ansible-slurm-exporter.svg?branch=master)](https://travis-ci.org/stackhpc/ansible-slurm-exporter)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![Ansible Role](https://img.shields.io/badge/ansible%20role-cloudalchemy.node_exporter-blue.svg)](https://galaxy.ansible.com/cloudalchemy/node-exporter/)
-[![GitHub tag](https://img.shields.io/github/tag/cloudalchemy/ansible-node-exporter.svg)](https://github.com/cloudalchemy/ansible-node-exporter/tags)
-[![IRC](https://img.shields.io/badge/irc.freenode.net-%23cloudalchemy-yellow.svg)](https://kiwiirc.com/nextclient/#ircs://irc.freenode.net/#cloudalchemy)
+[![Ansible Role](https://img.shields.io/badge/ansible%20role-stackhpc.slurm_exporter-blue.svg)](https://galaxy.ansible.com/stackhpc/slurm-exporter/)
+[![GitHub tag](https://img.shields.io/github/tag/stackhpc/ansible-slurm-exporter.svg)](https://github.com/stackhpc/ansible-slurm-exporter/tags)
+[![IRC](https://img.shields.io/badge/irc.freenode.net-%23stackhpc-yellow.svg)](https://kiwiirc.com/nextclient/#ircs://irc.freenode.net/#stackhpc)
 
 ## Description
 
-Deploy prometheus [node exporter](https://github.com/prometheus/node_exporter) using ansible.
+Deploy prometheus [node exporter](https://github.com/prometheus/slurm_exporter) using ansible.
 
 ## Requirements
 
@@ -23,13 +23,13 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| `node_exporter_version` | 0.18.1 | Node exporter package version. Also accepts latest as parameter. |
-| `node_exporter_web_listen_address` | "0.0.0.0:9100" | Address on which node exporter will listen |
-| `node_exporter_system_group` | "node-exp" | System group used to run node_exporter |
-| `node_exporter_system_user` | "node-exp" | System user used to run node_exporter |
-| `node_exporter_enabled_collectors` | [ systemd, textfile ] | List of additionally enabled collectors. It adds collectors to [those enabled by default](https://github.com/prometheus/node_exporter#enabled-by-default) |
-| `node_exporter_disabled_collectors` | [] | List of disabled collectors. By default node_exporter disables collectors listed [here](https://github.com/prometheus/node_exporter#disabled-by-default). |
-| `node_exporter_textfile_dir` | "/var/lib/node_exporter" | Directory used by the [Textfile Collector](https://github.com/prometheus/node_exporter#textfile-collector). To get permissions to write metrics in this directory, users must be in `node-exp` system group.
+| `slurm_exporter_version` | 0.18.1 | Node exporter package version. Also accepts latest as parameter. |
+| `slurm_exporter_web_listen_address` | "0.0.0.0:9100" | Address on which node exporter will listen |
+| `slurm_exporter_system_group` | "slurm-exp" | System group used to run slurm_exporter |
+| `slurm_exporter_system_user` | "slurm-exp" | System user used to run slurm_exporter |
+| `slurm_exporter_enabled_collectors` | [ systemd, textfile ] | List of additionally enabled collectors. It adds collectors to [those enabled by default](https://github.com/prometheus/slurm_exporter#enabled-by-default) |
+| `slurm_exporter_disabled_collectors` | [] | List of disabled collectors. By default slurm_exporter disables collectors listed [here](https://github.com/prometheus/slurm_exporter#disabled-by-default). |
+| `slurm_exporter_textfile_dir` | "/var/lib/slurm_exporter" | Directory used by the [Textfile Collector](https://github.com/prometheus/slurm_exporter#textfile-collector). To get permissions to write metrics in this directory, users must be in `slurm-exp` system group.
 
 ## Example
 
@@ -39,12 +39,12 @@ Use it in a playbook as follows:
 ```yaml
 - hosts: all
   roles:
-    - cloudalchemy.node-exporter
+    - stackhpc.slurm-exporter
 ```
 
 ### Demo site
 
-We provide demo site for full monitoring solution based on prometheus and grafana. Repository with code and links to running instances is [available on github](https://github.com/cloudalchemy/demo-site) and site is hosted on [DigitalOcean](https://digitalocean.com).
+We provide demo site for full monitoring solution based on prometheus and grafana. Repository with code and links to running instances is [available on github](https://github.com/stackhpc/demo-site) and site is hosted on [DigitalOcean](https://digitalocean.com).
 
 ## Local Testing
 

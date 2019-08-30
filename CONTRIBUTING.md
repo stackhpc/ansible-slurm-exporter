@@ -8,7 +8,7 @@ appreciate your support!!
 
 ### IRC
 
-You can talk with us on #cloudalchemy channel on freenode.
+You can talk with us on #stackhpc channel on freenode.
 
 ### GitHub repositories
 
