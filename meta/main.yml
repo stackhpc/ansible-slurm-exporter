@@ -1,9 +1,10 @@
 ---
 galaxy_info:
-  author: Roman Demachkovych, Pawel Krupa
-  description: Prometheus Node Exporter
+  author: Will Szumski
+  role_name: stackhpc.prometheus-slurm-exporter
+  description: Prometheus Slurm Exporter
   license: MIT
-  company: none
+  company: StackHPC
   min_ansible_version: 2.6
   platforms:
     - name: Ubuntu
