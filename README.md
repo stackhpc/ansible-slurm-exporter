@@ -1,6 +1,6 @@
 <p><img src="https://www.circonus.com/wp-content/uploads/2015/03/sol-icon-itOps.png" alt="graph logo" title="graph" align="right" height="60" /></p>
 
-# Ansible Role: node exporter
+# Ansible Role: prometheus slurm exporter
 
 [![Build Status](https://travis-ci.org/stackhpc/ansible-slurm-exporter.svg?branch=master)](https://travis-ci.org/stackhpc/ansible-slurm-exporter)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
@@ -10,7 +10,7 @@
 
 ## Description
 
-Deploy prometheus [node exporter](https://github.com/prometheus/slurm_exporter) using ansible.
+Deploy prometheus [slurm exporter](https://github.com/vpenso/prometheus-slurm-exporter) using ansible.
 
 ## Requirements
 
@@ -38,10 +38,6 @@ Use it in a playbook as follows:
   roles:
     - stackhpc.slurm-exporter
 ```
-
-### Demo site
-
-We provide demo site for full monitoring solution based on prometheus and grafana. Repository with code and links to running instances is [available on github](https://github.com/stackhpc/demo-site) and site is hosted on [DigitalOcean](https://digitalocean.com).
 
 ## Local Testing
 
