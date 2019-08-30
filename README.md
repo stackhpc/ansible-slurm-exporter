@@ -23,13 +23,10 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| `slurm_exporter_version` | 0.18.1 | Node exporter package version. Also accepts latest as parameter. |
+| `slurm_exporter_version` | 0.8    | Node exporter package version. Also accepts latest as parameter. |
 | `slurm_exporter_web_listen_address` | "0.0.0.0:9100" | Address on which node exporter will listen |
 | `slurm_exporter_system_group` | "slurm-exp" | System group used to run slurm_exporter |
 | `slurm_exporter_system_user` | "slurm-exp" | System user used to run slurm_exporter |
-| `slurm_exporter_enabled_collectors` | [ systemd, textfile ] | List of additionally enabled collectors. It adds collectors to [those enabled by default](https://github.com/prometheus/slurm_exporter#enabled-by-default) |
-| `slurm_exporter_disabled_collectors` | [] | List of disabled collectors. By default slurm_exporter disables collectors listed [here](https://github.com/prometheus/slurm_exporter#disabled-by-default). |
-| `slurm_exporter_textfile_dir` | "/var/lib/slurm_exporter" | Directory used by the [Textfile Collector](https://github.com/prometheus/slurm_exporter#textfile-collector). To get permissions to write metrics in this directory, users must be in `slurm-exp` system group.
 
 ## Example
 

@@ -1,18 +1,6 @@
 ---
-slurm_exporter_version: 0.18.1
+slurm_exporter_version: 0.8
 slurm_exporter_web_listen_address: "0.0.0.0:9100"
 
 slurm_exporter_system_group: "slurm-exp"
 slurm_exporter_system_user: "{{ slurm_exporter_system_group }}"
-
-slurm_exporter_textfile_dir: "/var/lib/slurm_exporter"
-
-slurm_exporter_enabled_collectors:
-  - systemd
-  - textfile:
-      directory: "{{ slurm_exporter_textfile_dir }}"
-#  - filesystem:
-#      ignored-mount-points: "^/(sys|proc|dev)($|/)"
-#      ignored-fs-types: "^(sys|proc|auto)fs$"
-
-slurm_exporter_disabled_collectors: []

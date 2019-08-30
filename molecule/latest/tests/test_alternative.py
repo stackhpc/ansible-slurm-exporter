@@ -8,7 +8,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 @pytest.mark.parametrize("files", [
     "/etc/systemd/system/slurm_exporter.service",
-    "/usr/local/bin/slurm_exporter"
+    "/usr/local/bin/prometheus-slurm-exporter"
 ])
 def test_files(host, files):
     f = host.file(files)

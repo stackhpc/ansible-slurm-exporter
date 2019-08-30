@@ -9,16 +9,6 @@
   delay: 2
   with_items: "{{ slurm_exporter_dependencies }}"
 
-- name: Install go dependencies
-  go:
-    state: latest
-    name:
-      - github.com/prometheus/client_golang/prometheus
-      - github.com/sirupsen/logrus
-      - gopkg.in/alecthomas/kingpin.v2
-  delegate_to: localhost
-  check_mode: false
-
 - name: Create the slurm_exporter group
   group:
     name: "{{ slurm_exporter_system_group }}"
@@ -64,6 +54,12 @@
     state: directory
     mode: 0755
 
+- name: Create /var/lib/slurm_exporter
+  file:
+    path: /var/lib/slurm_exporter
+    state: directory
+    mode: 0755
+
 - name: Install go dependencies
   go:
     state: latest
@@ -73,19 +69,31 @@
       - gopkg.in/alecthomas/kingpin.v2
   delegate_to: localhost
   check_mode: false
+  become: false
 
 - name: Compile the exporter
   command: make build
   args:
     chdir: /tmp/prometheus-slurm-exporter-{{ slurm_exporter_version }}
+    creates: "/tmp/prometheus-slurm-exporter-{{ slurm_exporter_version }}/bin/prometheus-slurm-exporter"
+  environment:
+    GOPATH: "{{ ansible_env.GO_PATH | default('~/go') }}"
   delegate_to: localhost
+  check_mode: false
+  become: false
 
 - name: Propagate slurm_exporter binaries
   copy:
-    src: "/tmp/prometheus-slurm-exporter-{{ slurm_exporter_version }}/slurm_exporter"
+    src: "/tmp/prometheus-slurm-exporter-{{ slurm_exporter_version }}/bin/prometheus-slurm-exporter"
     dest: "/usr/local/bin/prometheus-slurm-exporter"
     mode: 0755
     owner: root
     group: root
   notify: restart slurm_exporter
+  when: not ansible_check_mode
+
+- name: write version to file
+  copy:
+    content: "{{ slurm_exporter_version }}"
+    dest: /var/lib/slurm_exporter/version
   when: not ansible_check_mode

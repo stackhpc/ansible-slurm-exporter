@@ -19,7 +19,7 @@
 
 - import_tasks: install.yml
   become: true
-  when: (not __slurm_exporter_is_installed.stat.exists) or (__slurm_exporter_current_version_output.stderr_lines[0].split(" ")[2] != slurm_exporter_version)
+  when: (not __slurm_exporter_is_installed.stat.exists) or (__slurm_exporter_current_version.content != slurm_exporter_version)
   tags:
     - slurm_exporter_install
 

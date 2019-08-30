@@ -21,19 +21,18 @@
     that:
       - "':' in slurm_exporter_web_listen_address"
 
-- name: Check if slurm_exporter is installed
+- name: Check if prometheus-slurm-exporter is installed
   stat:
-    path: "/usr/local/bin/slurm_exporter"
+    path: "/var/lib/slurm_exporter/version"
   register: __slurm_exporter_is_installed
   tags:
     - slurm_exporter_install
 
 - name: Gather currently installed slurm_exporter version (if any)
-  command: "/usr/local/bin/slurm_exporter --version"
-  args:
-    warn: false
+  slurp:
+    src: /var/lib/slurm_exporter/version
   changed_when: false
-  register: __slurm_exporter_current_version_output
+  register: __slurm_exporter_current_version
   when: __slurm_exporter_is_installed.stat.exists
   tags:
     - slurm_exporter_install

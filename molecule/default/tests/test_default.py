@@ -18,7 +18,7 @@ def test_directories(host):
 def test_files(host):
     files = [
         "/etc/systemd/system/slurm_exporter.service",
-        "/usr/local/bin/slurm_exporter"
+        "/usr/local/bin/prometheus-slurm-exporter"
     ]
     for file in files:
         f = host.file(file)
