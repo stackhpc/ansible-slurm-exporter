@@ -27,7 +27,7 @@
     home: /
   when: slurm_exporter_system_user != "root"
 
-- name: Download slurm_exporter binary to local folder
+- name: Download slurm_exporter package to local folder
   become: false
   get_url:
     url: https://github.com/vpenso/prometheus-slurm-exporter/archive/{{ slurm_exporter_version }}.tar.gz
@@ -37,6 +37,7 @@
   retries: 5
   delay: 2
   delegate_to: localhost
+  run_once: true
   check_mode: false
 
 - name: Unpack slurm_exporter binary
@@ -69,6 +70,7 @@
       - gopkg.in/alecthomas/kingpin.v2
   delegate_to: localhost
   check_mode: false
+  run_once: true
   become: false
 
 - name: Compile the exporter
@@ -80,6 +82,7 @@
     GOPATH: "{{ ansible_env.GO_PATH | default('~/go') }}"
   delegate_to: localhost
   check_mode: false
+  run_once: true
   become: false
 
 - name: Propagate slurm_exporter binaries

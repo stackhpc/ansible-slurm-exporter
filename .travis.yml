@@ -28,8 +28,3 @@ branches:
     - master
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
-# For compiling the exporter
-language: go
-go:
-  - 1.12.9

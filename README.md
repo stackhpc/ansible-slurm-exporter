@@ -2,7 +2,7 @@
 
 # Ansible Role: prometheus slurm exporter
 
-[![Build Status](https://travis-ci.org/stackhpc/ansible-slurm-exporter.svg?branch=master)](https://travis-ci.org/stackhpc/ansible-slurm-exporter)
+[![Build Status](https://travis-ci.com/stackhpc/ansible-slurm-exporter.svg?branch=master)](https://travis-ci.org/stackhpc/ansible-slurm-exporter)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Ansible Role](https://img.shields.io/badge/ansible%20role-stackhpc.slurm_exporter-blue.svg)](https://galaxy.ansible.com/stackhpc/slurm-exporter/)
 [![GitHub tag](https://img.shields.io/github/tag/stackhpc/ansible-slurm-exporter.svg)](https://github.com/stackhpc/ansible-slurm-exporter/tags)
