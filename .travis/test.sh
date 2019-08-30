@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+export GOPATH=~/go
+
 if [ ! -d "./molecule/latest" ]; then	
 	tox -- molecule test --all
 	exit 0
