@@ -7,8 +7,3 @@
   vars:
     slurm_exporter_system_group: "root"
     slurm_exporter_system_user: "root"
-    slurm_exporter_textfile_dir: ""
-    slurm_exporter_enabled_collectors:
-      - entropy
-    slurm_exporter_disabled_collectors:
-      - diskstats

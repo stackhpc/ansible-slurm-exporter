@@ -23,7 +23,7 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| `slurm_exporter_version` | 0.8    | Node exporter package version. Also accepts latest as parameter. |
+| `slurm_exporter_version` | "0.8"    | Slurm exporter package version. Also accepts latest as parameter. |
 | `slurm_exporter_web_listen_address` | "0.0.0.0:9100" | Address on which node exporter will listen |
 | `slurm_exporter_system_group` | "slurm-exp" | System group used to run slurm_exporter |
 | `slurm_exporter_system_user` | "slurm-exp" | System user used to run slurm_exporter |
