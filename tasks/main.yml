@@ -28,7 +28,7 @@
   tags:
     - slurm_exporter_configure
 
-- name: Ensure Node Exporter is enabled on boot
+- name: Ensure Slurm Exporter is enabled on boot
   become: true
   systemd:
     daemon_reload: true
