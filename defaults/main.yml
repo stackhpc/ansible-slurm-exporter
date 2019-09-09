@@ -1,5 +1,5 @@
 ---
-slurm_exporter_version: "{{ '0.8' }}"
+slurm_exporter_version: 0.8
 slurm_exporter_web_listen_address: "0.0.0.0:8080"
 
 slurm_exporter_system_group: "slurm-exp"
