@@ -4,16 +4,5 @@ set -euo pipefail
 
 export GOPATH=~/go
 
-if [ ! -d "./molecule/latest" ]; then	
-	tox -- molecule test --all
-	exit 0
-fi
+tox -- molecule test --all
 
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-	tox -- molecule test --all --destroy always
-else
-	tox -- molecule test -s default --destroy always
-	if [ -d "./molecule/alternative" ]; then
-		tox -- molecule test -s alternative --destroy never
-	fi
-fi
