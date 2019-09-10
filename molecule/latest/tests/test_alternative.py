@@ -23,5 +23,5 @@ def test_service(host):
 
 
 def test_socket(host):
-    s = host.socket("tcp://0.0.0.0:9100")
+    s = host.socket("tcp://0.0.0.0:8080")
     assert s.is_listening
